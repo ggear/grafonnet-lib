@@ -1,6 +1,6 @@
 {
   /**
-   * Creates a [CloudWatch target](https://grafana.com/docs/grafana/latest/datasources/cloudwatch/)
+   * Creates a [CloudWatch target](https://grafana.com/docs/grafana/latest/features/datasources/cloudwatch/)
    *
    * @name cloudwatch.target
    *
@@ -11,7 +11,7 @@
    * @param statistic (default: `'Average'`)
    * @param alias (optional)
    * @param highResolution (default: `false`)
-   * @param period (default: `'auto'`)
+   * @param period (default: `'1m'`)
    * @param dimensions (optional)
    * @param id (optional)
    * @param expression (optional)
@@ -28,7 +28,7 @@
     statistic='Average',
     alias=null,
     highResolution=false,
-    period='auto',
+    period='1m',
     dimensions={},
     id=null,
     expression=null,

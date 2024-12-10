@@ -1,6 +1,6 @@
 {
   /**
-   * Creates an [Elasticsearch target](https://grafana.com/docs/grafana/latest/datasources/elasticsearch/)
+   * Creates an [Elasticsearch target](https://grafana.com/docs/grafana/latest/features/datasources/elasticsearch/)
    *
    * @name elasticsearch.target
    *

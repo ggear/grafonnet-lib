@@ -8,6 +8,8 @@
    * @param description (optional) Panel description.
    * @param datasource (optional) Panel datasource.
    * @param unit (optional) The unit of the data.
+   * @param orientation (optional) The orientation of the guage.
+   * @param display_mode (optional) The display mode of the guage.
    * @param thresholds (optional) An array of threashold values.
    *
    * @method addTarget(target) Adds a target object.
@@ -18,6 +20,10 @@
     description=null,
     datasource=null,
     unit=null,
+    min=null,
+    max=null,
+    orientation='horizontal',
+    display_mode='basic',
     thresholds=[],
   ):: {
     type: 'bargauge',
@@ -29,11 +35,17 @@
     fieldConfig: {
       defaults: {
         unit: unit,
+        [if min != null then 'min']: min,
+        [if max != null then 'max']: max,
         thresholds: {
           mode: 'absolute',
           steps: thresholds,
         },
       },
+    },
+    options: {
+      orientation: orientation,
+      displayMode: display_mode
     },
     _nextTarget:: 0,
     addTarget(target):: self {

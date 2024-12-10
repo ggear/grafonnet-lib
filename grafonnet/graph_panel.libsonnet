@@ -21,6 +21,8 @@
    * @param formatY2 (optional) Unit of the second Y axis
    * @param min (optional) Min of the Y axes
    * @param max (optional) Max of the Y axes
+   * @param min2 (optional) Min of the second Y axes
+   * @param max2 (optional) Max of the second Y axes
    * @param maxDataPoints (optional) If the data source supports it, sets the maximum number of data points for each series returned.
    * @param labelY1 (optional) Label of the first Y axis
    * @param labelY2 (optional) Label of the second Y axis
@@ -85,6 +87,8 @@
     formatY2=null,
     min=null,
     max=null,
+    min2=null,
+    max2=null,
     labelY1=null,
     labelY2=null,
     x_axis_mode='time',
@@ -156,13 +160,20 @@
       ),
       self.yaxe(
         if formatY2 != null then formatY2 else format,
-        min,
-        max,
+        min2,
+        max2,
         decimals=(if decimalsY2 != null then decimalsY2 else decimals),
         logBase=logBase2Y,
-        label=labelY2
+        label=labelY2,
+        show=false
       ),
     ],
+
+    yaxis: {
+      align: false,
+      alignLevel: null
+    },
+
     xaxis: {
       show: show_xaxis,
       mode: x_axis_mode,
@@ -185,6 +196,10 @@
     stack: stack,
     percentage: percentage,
     [if maxDataPoints != null then 'maxDataPoints']: maxDataPoints,
+
+    hiddenSeries: false,
+    options: { alertThreshold: true },
+
     legend: {
       show: legend_show,
       values: legend_values,
@@ -210,6 +225,9 @@
     },
     timeFrom: time_from,
     timeShift: time_shift,
+
+    timeRegions: [],
+
     [if interval != null then 'interval']: interval,
     [if transparent == true then 'transparent']: transparent,
     aliasColors: aliasColors,

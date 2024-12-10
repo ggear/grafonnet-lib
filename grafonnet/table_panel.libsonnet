@@ -12,6 +12,7 @@
    * @param datasource (optional) Datasource
    * @param min_span (optional)  Min span
    * @param styles (optional) Array of styles for the panel
+   * @param default_unit (optional) Default unit for the panel
    * @param columns (optional) Array of columns for the panel
    * @param sort (optional) Sorting instruction for the panel
    * @param transform (optional) Allow table manipulation to present data as desired
@@ -35,6 +36,7 @@
     height=null,
     datasource=null,
     styles=[],
+    default_unit='',
     transform=null,
     transparent=false,
     columns=[],
@@ -56,6 +58,9 @@
     timeFrom: time_from,
     timeShift: time_shift,
     links: links,
+    fieldConfig: {
+      defaults: { unit: default_unit }
+    },
     [if sort != null then 'sort']: sort,
     [if description != null then 'description']: description,
     [if transform != null then 'transform']: transform,
